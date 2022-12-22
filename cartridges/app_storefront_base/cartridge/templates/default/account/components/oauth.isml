@@ -1,0 +1,24 @@
+<form action="" class="login-oauth row justify-content-md-center" method="post" name="login-oauth-form">
+    <div class="form-group col col-lg-2">
+        <a href="${URLUtils.https('Login-OAuthLogin', 'oauthProvider', 'Google', 'oauthLoginTargetEndPoint', pdict.oAuthReentryEndpoint)}" class="oauth-google"
+           role="button" aria-pressed="true">
+            <i class="fa fa-google" style="font-size:40px;" aria-hidden="true"></i>
+            <iscomment> ${Resource.msg('button.text.oauth.google', 'login', null)} </iscomment>
+        </a>
+    </div>
+    <div class="form-group col col-lg-2">
+        <a href="${URLUtils.https('Login-OAuthLogin', 'oauthProvider', 'Facebook', 'oauthLoginTargetEndPoint', pdict.oAuthReentryEndpoint)}" class="oauth-facebook"
+           role="button" aria-pressed="true">
+                <i class="fa fa-facebook-official" style="font-size:40px;" aria-hidden="true"></i>
+                <iscomment> ${Resource.msg('button.text.oauth.facebook', 'login', null)} </iscomment>
+        </a>
+    </div>
+
+    <div class="form-group col col-lg-2">
+        <a href="${URLUtils.https('Login-OAuthLogin', 'oauthProvider', 'Facebook', 'oauthLoginTargetEndPoint', pdict.oAuthReentryEndpoint)}"
+            class="oauth-facebook" role="button" aria-pressed="true">
+            <i class="fa fa-twitter" style="font-size:40px;" aria-hidden="true"></i>
+            <iscomment> ${Resource.msg('button.text.oauth.facebook', 'login', null)} </iscomment>
+        </a>
+    </div>
+</form>

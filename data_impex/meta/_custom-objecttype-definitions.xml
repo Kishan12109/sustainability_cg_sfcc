@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    This file should be copied and named for each mega-feature or integration.
+
+    For example:
+        custom-objecttype-definitions-newsletter.xml
+        custom-objecttype-definitions-ordermanagement.xml
+ -->
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+
+    <!-- The following is an example of a custom object type definition for reference purposes -->
+    <!-- <custom-type type-id="OrderUpdate">
+        <display-name xml:lang="x-default">Order Update</display-name>
+        <description xml:lang="x-default">Receive XML configuration for corresponding order for order update operations</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <retention-days>2</retention-days>
+        <key-definition attribute-id="ID">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="orderUpdateFailed">
+                <display-name xml:lang="x-default">Order Update Failed</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="orderUpdateXML">
+                <display-name xml:lang="x-default">Order Update XML</display-name>
+                <description xml:lang="x-default">Order Update XML</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="default">
+                <display-name xml:lang="x-default">Default</display-name>
+                <attribute attribute-id="ID"/>
+                <attribute attribute-id="orderUpdateFailed"/>
+                <attribute attribute-id="orderUpdateXML"/>
+                <attribute attribute-id="lastModified" system="true"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type> -->
+
+</metadata>

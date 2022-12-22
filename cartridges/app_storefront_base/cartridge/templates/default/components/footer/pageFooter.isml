@@ -1,0 +1,70 @@
+<footer id="footercontent">
+    <div class="container">
+        <div class="footer-container row">
+            <div class="footer-item company-name col-sm-3 store">
+                <iscontentasset aid="footer-company-name" />
+            </div>
+        </div>
+
+        <div class="footer-container row">
+            <div class="footer-item col-sm-3 collapsible-xs">
+                <iscontentasset aid="footer-name1" />
+            </div>
+            <div class="footer-item col-sm-3 collapsible-xs">
+                <iscontentasset aid="footer-name1" />
+            </div>
+            <div class="footer-item col-sm-3 collapsible-xs">
+                <iscontentasset aid="footer-name1" />
+            </div>
+            <div class="footer-item col-sm-3 collapsible-xs">
+                <iscontentasset aid="footer-name1" />
+            </div>
+        </div>
+
+        <div class="footer-container row">
+            <div class="footer-item col-sm-3 collapsible-xs">
+                <iscontentasset aid="footer-socials" />
+            </div>
+            <iscomment>
+                <div class="footer-item row-sm-3 collapsible-xs">
+                    <iscontentasset aid="footer-socials" />
+                </div>
+                <div class="footer-item row-sm-3 collapsible-xs">
+                    <iscontentasset aid="footer-socials" />
+                </div>
+                <div class="footer-item row-sm-3 collapsible-xs">
+                    <iscontentasset aid="footer-socials" />
+                </div>
+            </iscomment>
+
+            <iscomment>
+                <div class="footer-container col-sm-3 col">
+            </iscomment>
+            <div class="footer-item en col-sm-3 collapsible-xs">
+                <iscontentasset aid="sustain-text-en" />
+            </div>
+            <iscomment>
+                <div class="footer-item row-sm-3 collapsible-xs">
+                    <iscontentasset aid="sustain-text-en" />
+                </div>
+            </iscomment>
+            <iscomment>
+        </div>
+        </iscomment>
+
+        <div class="footer-item col-sm-3 collapsible-xs">
+            <iscontentasset aid="play-store" />
+        </div>
+        <div class="footer-item col-sm-3 collapsible-xs">
+            <iscontentasset aid="app-store" />
+        </div>
+    </div>
+    <div class="footer-container row">
+        <div class="footer-item col-sm-3 collapsible-xs">
+            <iscontentasset aid="footer-copy" />
+        </div>
+        <div class="footer-item col-xs-3 collapsible-xs">
+            <iscontentasset aid="footer-privacy" />
+        </div>
+    </div>
+</footer>

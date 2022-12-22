@@ -1,0 +1,19 @@
+<iscomment> <div class="card ghost customer"> </iscomment>
+    <iscomment> <div class="card-header"> </iscomment>
+        <iscomment> <h2>${Resource.msg('heading.checkout.customer', 'checkout', null)}</h2> </iscomment>
+    <iscomment> </div> </iscomment>
+<iscomment> </div> </iscomment>
+
+<iscomment> <div class="card customer-section"> </iscomment>
+    <iscomment> <div class="card-header"> </iscomment>
+        <h2 class="checkout-order-summary-heading">${Resource.msg('heading.checkout.customer', 'checkout', null)}</h2>
+    <iscomment> </div> </iscomment>
+    <div class="customer-error"></div>
+    <isinclude template="checkout/customer/customerCard" />
+    <iscomment> <isinclude template="checkout/customer/customerOAuthCard" /> </iscomment>
+    <iscomment> <div class="p-4">
+    <h3 class="text-center mb-3" style="font-size:20px">Login with</h3>
+    <isinclude template="account/components/oauth" />
+    </div> </iscomment>
+
+<iscomment> </div> </iscomment>

@@ -1,0 +1,139 @@
+@import "collapsibleItem";
+@import "toastMessage";
+
+footer {
+    background: #61a670;
+    padding-top: 1.25em;
+    padding-bottom: 1.25em;
+
+    .company-name h2 {
+        font-size: 24px !important;
+    }
+
+    .en h2 {
+        font-size: 14px !important;
+    }
+
+    .sustain-links h2 {
+        font-size: 14px !important;
+    }
+
+    h2 {
+        font-size: 16px;
+        margin-bottom: 0;
+        line-height: 2.5em;
+        color: $white;
+    }
+
+    .app-store {
+        width: 109px;
+        margin-top: -40px;
+    }
+
+    ul {
+        color: $white;
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .social {
+        h2 {
+            margin-top: 0;
+        }
+
+        @include clearfix;
+    }
+
+    .copyright,
+    .social {
+        margin-top: 1.25em;
+    }
+
+    .footer-container .footer-item.collapsible-xs button {
+        font-family: 'Poppins';
+        padding: 0;
+    }
+
+    .social-links {
+
+        @include clearfix;
+
+        @include media-breakpoint-down(xs) {
+            width: 80%;
+        }
+
+        float: left;
+
+        li {
+            float: left;
+            margin: 0.313em;
+
+            @include media-breakpoint-down(xs) {
+                width: 20%;
+                text-align: center;
+            }
+        }
+
+        a {
+            color: $white !important;
+            font-size: 2.25em;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .store {
+
+        @include media-breakpoint-down(xs) {
+            border-bottom: 1px solid $dark-gray;
+
+            .content {
+                display: none;
+            }
+
+            h2 {
+                @include clearfix;
+
+                &::after {
+                    font-family: "FontAwesome";
+                    float: right;
+                    content: "\f041";
+                }
+            }
+        }
+    }
+
+    .content {
+        font-size: 0.875em;
+
+        li {
+            height: 1.875rem;
+        }
+    }
+
+    .copyright,
+    .postscript {
+        font-size: 0.8125em;
+    }
+
+    .copyright {
+        margin-bottom: 0.625em;
+    }
+}
+
+.footer-item {
+
+    @include media-breakpoint-down(xs) {
+        border-bottom: 1px solid $dark-gray;
+    }
+}
+
+#consent-tracking {
+    .button-wrapper {
+        button {
+            margin: 0.5em;
+        }
+    }
+}

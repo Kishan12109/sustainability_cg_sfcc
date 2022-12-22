@@ -1,0 +1,66 @@
+body,
+.card-header,
+.hero {
+    background-color: var(--skin-background-color-1);
+    font-family: 'Poppins';
+    color: var(--skin-main-text-color-1);
+}
+
+.hero {
+    border-bottom-color: var(--skin-background-color-1);
+}
+
+.main-menu {
+    background-color: var(--color-white);
+}
+
+.banner-color {
+    background-color: var(--color-white);
+}
+
+.header-banner {
+    background-color: var(--skin-banner-background-color-2);
+    color: var(--skin-banner-text-color-1);
+}
+
+.header-banner .close-button .close {
+    background-color: var(--skin-primary-color-1);
+}
+
+h1.header.page-title,
+h1.header.page-title::before {
+    background-color: var(--skin-heading-color-1);
+    color: var(--skin-heading-color-1-invert);
+}
+
+.product-tile {
+    background-color: var(--skin-background-color-1);
+    border: 10px solid var(--skin-border-color-1);
+}
+
+.refinements ul li button {
+    color: var(--skin-primary-color-1);
+}
+
+.custom-select {
+    background-color: var(--skin-selectbox-background-color-1);
+    color: var(--skin-selectbox-text-color-1);
+}
+
+.price {
+    color: var(--skin-price-1);
+}
+
+.navbar .nav-item.dropdown,
+.navbar .nav-item.dropdown .dropdown-menu.show {
+    color: var(--skin-selectbox-text-color-1);
+}
+
+.navbar .nav-item.dropdown .dropdown-menu.show {
+    background-color: var(--skin-selectbox-background-color-1);
+
+    a,
+    .nav-item {
+        color: var(--skin-selectbox-text-color-1);
+    }
+}

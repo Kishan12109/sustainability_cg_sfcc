@@ -1,0 +1,47 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/login.css');
+        assets.addJs('/js/login.js');
+    </isscript>
+
+    <iscomment> <div class="hero slant-down login-banner">
+        <h1 class="page-title">${Resource.msg('header.hero.image.signup', 'login', null)}</h1>
+    </div> </iscomment>
+    <div class="container login-page">
+        <!---Breadcrumbs--->
+        <iscomment> <isinclude template="components/breadcrumbs/pageBreadcrumbs" /> </iscomment>
+        <div class="row justify-content-center equal-height">
+            <div class=" col-md-6">
+                <img src="${URLUtils.staticURL('/images/unsplash_uCqVRj36gEM.png')}" alt="sign-up" width="100%">
+            </div>
+            <div class=" col-md-6">
+                <div class="login-form-nav">
+                    <isinclude template="account/components/navTabs" />
+                    <div class="tab-content">
+                        <div class="tab-pane ${pdict.navTabValue === 'login' ? 'active' : ''}" id="login"
+                            role="tabpanel" aria-labelledby="login-tab">
+                            <isinclude template="account/components/loginForm" />
+                            <isinclude template="account/password/requestPasswordResetModal" />
+                            <isinclude template="account/components/oauth" />
+                        </div>
+                        <div class="tab-pane ${pdict.navTabValue === " register" ? 'active' : ''}" id="register"
+                            role="tabpanel" aria-labelledby="register-tab">
+                            <isinclude template="account/components/registerForm" />
+                            <isinclude template="account/components/oauth" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <iscomment>
+                <div class="col-sm-8 col-md-6">
+                    <div class="card">
+                        <iscomment>
+                            <isinclude template="account/components/trackOrderForm" />
+                            <isinclude template="account/components/registerForm" />
+                    </div>
+                </div>
+            </iscomment>
+        </div>
+    </div>
+</isdecorate>

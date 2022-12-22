@@ -1,0 +1,60 @@
+@import "variables";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins-Light.ttf");
+}
+
+body {
+    background-color: $white !important;
+    font-family: 'Poppins';
+}
+
+html {
+    font-size: 0.875rem;
+    font-family: 'Poppins';
+}
+
+@include media-breakpoint-up(sm) {
+    html {
+        font-size: 1rem;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    html {
+        font-size: 1.125rem;
+    }
+}
+
+h1 {
+    font-size: $heading-1-font-size;
+    font-weight: $font-weight-heavier;
+    font-family: 'Poppins';
+}
+
+h2 {
+    font-size: $heading-2-font-size;
+    font-weight: $font-weight-heavier;
+    font-family: 'Poppins';
+}
+
+h3 {
+    font-size: $heading-3-font-size;
+    font-weight: $font-weight-heavier;
+    font-family: 'Poppins';
+    text-align: center;
+}
+
+h4 {
+    font-size: $heading-4-font-size;
+    font-weight: $font-weight-huskie;
+    font-family: 'Poppins';
+}
+
+h5 {
+    font-weight: $font-weight-huskie;
+    font-family: 'Poppins';
+}

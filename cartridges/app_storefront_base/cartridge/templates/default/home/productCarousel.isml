@@ -1,0 +1,63 @@
+<div>
+    
+    <div class="container">
+    <h1 class="text">Our Sustainable Products</h1>
+        <div class="row caro-images">
+            <div class="col-xs-16">
+                <div id="imageCarousel" class="carousel slide">
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row carousel-images">
+                                <div class="col">
+                                    <img src="${URLUtils.staticURL('/images/11.png')}" class="img-responsive" alt="...">
+                                </div>
+                                <div class="col">
+                                    <img src="${URLUtils.staticURL('/images/12.png')}" class="img-responsive" alt="...">
+                                </div>
+                                <div class="col">
+                                    <img src="${URLUtils.staticURL('/images/13.png')}" class="img-responsive" alt="...">
+                                </div>
+                                <div class="col">
+                                    <img src="${URLUtils.staticURL('/images/10.png')}" class="img-responsive" alt="...">
+                                </div>
+                                <div class="col">
+                                    <img src="${URLUtils.staticURL('/images/14.png')}" class="img-responsive" alt="...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="row carousel-images">
+                                <div class="col">
+                                    <img src="${URLUtils.staticURL('/images/15.png')}" class="img-responsive" alt="...">
+                                </div>
+                                <div class="col">
+                                    <img src="${URLUtils.staticURL('/images/6.png')}" class="img-responsive" alt="...">
+                                </div>
+                                <div class="col">
+                                    <img src="${URLUtils.staticURL('/images/16.png')}" class="img-responsive" alt="...">
+                                </div>
+                                <div class="col">
+                                    <img src="${URLUtils.staticURL('/images/17.png')}" class="img-responsive" alt="...">
+                                </div>
+                                <div class="col">
+                                    <img src="${URLUtils.staticURL('/images/14.png')}" class="img-responsive" alt="...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+                            <i class="fa fa-arrow-left"></i>
+                            <span class="sr-only">${Resource.msg('button.previous', 'common', null)}</span>
+                        </a>
+                        <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            <span class="sr-only">${Resource.msg('button.next', 'common', null)}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

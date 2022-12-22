@@ -1,0 +1,37 @@
+<isdecorate template="common/layout/page">
+
+    <div class="cointainer" style="margin:100px;">
+
+        <div class="row">
+            <div class="col">
+                <div class="card static-card">
+                    <img src="${URLUtils.staticURL('/images/sustain.png')}" alt="logo" />
+                    <div class="card-body">
+                        <p class="card-text">${Resource.msg('product.description', 'common', null)}</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col">
+                <isslot id="sustainability-static" description="static page" context="global" />
+                <a class="read-more" href="#">${Resource.msg('label.sustain.read', 'common', null)}</a>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col">
+                <isslot id="sustainability-static-1" description="static page" context="global" />
+                <a class="read-more" href="#">${Resource.msg('label.sustain.read', 'common', null)} </a>
+            </div>
+            <div class="col">
+                <div class="card static-card">
+                    <img src="${URLUtils.staticURL('/images/sust.png')}" alt="logo" />
+                    <div class="card-body">
+                        <p class="card-text">${Resource.msg('product.description', 'common', null)}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>

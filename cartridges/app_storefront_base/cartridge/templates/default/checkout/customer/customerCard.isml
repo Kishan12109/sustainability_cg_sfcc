@@ -1,0 +1,121 @@
+<div class="card-body">
+    <form autocomplete="on" id="guest-customer" class="guest-form" method="POST" action="${URLUtils.url('CheckoutServices-SubmitCustomer')}"
+        <isprint value=${pdict.forms.guestCustomerForm.attributes} encoding="off" /> novalidate>
+        <fieldset class="customer-information-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="form-control-label sustain-label mb-3">
+                            ${Resource.msg('field.customer.email','checkout',null)}
+                        </label>
+                        <input type="text" class="form-control email" id="email-guest"
+                                    value="${(pdict.customer.registeredUser && pdict.customer.profile && pdict.customer.profile.email) ? pdict.customer.profile.email : ''}" <isprint value=${pdict.forms.guestCustomerForm.email.attributes} encoding="off"/>
+                                    aria-describedby="guestEmailInvalidMessage" >
+                        <div class="invalid-feedback" id="guestEmailInvalidMessage"></div>
+                    </div>
+                </div>
+            </div>
+            <isif condition="${!pdict.customer.registeredUser}">
+                <button class="btn btn-primary btn-block submit-customer mb-2 mb-md-3 green-button-background" type="submit" name="submit" value="submit-customer">
+                ${Resource.msg('button.guest.customer.continue', 'checkout', null)}
+            </button> 
+        </isif>
+        <div class="js-login-customer-container mb-4">
+            <button type="button" class="btn btn-link js-login-customer">${Resource.msg('msg.guest.customer.exists', 'checkout', null)} </button>
+            <span>or</span>
+            <a href="${URLUtils.url('Login-Show', 'action', 'register')}"
+                class="btn btn-link">${Resource.msg('button.create.customer.account', 'checkout', null)} </a>
+        </div>
+    </fieldset>
+    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+    </form>
+
+    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('IDmeEnabled')}">
+        <div id="id-me-accordion">
+            <div id="headingIdMe" class="text-center pb-4">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseIdMe"
+                    aria-expanded="false" aria-controls="collapseIdMe">
+                    ${Resource.msg('label.idme', 'cart', null)}
+                </button>
+            </div>
+            <div id="collapseIdMe" class="collapse" aria-labelledby="headingIdMe" data-parent="#id-me-accordion">
+
+                <!-- ID.me integration -->
+                <isset name="IDmeTargetUrl" value="Checkout-Begin" scope="session" />
+                <isinclude template="checkout/idmebuttons" />
+            </div>
+        </div>
+    </isif>
+
+    <form autocomplete="on" id="registered-customer" method="POST" class="registered-form d-none"
+        action="${URLUtils.url('CheckoutServices-LoginCustomer')}" <isprint
+        value=${pdict.forms.registeredCustomerForm.attributes} encoding="off" /> novalidate>
+    <fieldset class="customer-information-block">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="form-control-label sustain-label ">
+                        ${Resource.msg('field.customer.email','checkout',null)}
+                    </label>
+                    <input type="text" class="form-control email" id="email"
+                        value="${(pdict.customer.registeredUser && pdict.customer.profile && pdict.customer.profile.email) ? pdict.customer.profile.email : ''}" <isprint value=${pdict.forms.registeredCustomerForm.email.attributes} encoding="off"/>
+                    aria-describedby="emailInvalidMessage" >
+                    <div class="invalid-feedback" id="emailInvalidMessage"></div>
+                </div>
+                <div class="form-group password-form">
+                    <label class="form-control-label sustain-label">
+                        ${Resource.msg('field.customer.password','checkout',null)}
+                    </label>
+                    <input type="password" class="form-control password" id="password"
+                    <isprint value=${pdict.forms.registeredCustomerForm.password.attributes} encoding="off"/>
+                    aria-describedby="passwordInvalidMessage" >
+                    <div class="invalid-feedback" id="passwordInvalidMessage"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix pb-4 pb-6">
+            <div class="form-group custom-control custom-checkbox pull-left remember-me mb-0">
+                <input type="checkbox" class="custom-control-input" id="${formPrefix}rememberMe" name="loginRememberMe"
+                    value="true" <isif condition="${pdict.rememberMe}">checked</isif>
+                >
+                <label class="custom-control-label" for="${formPrefix}rememberMe">
+                    ${Resource.msg('label.checkbox.login.rememberme', 'login', null)}
+                </label>
+            </div>
+
+            <div class="pull-right forgot-password text-right">
+                <a class="d-sm-none" href="${URLUtils.url('Account-PasswordReset')}"
+                    title="${Resource.msg('link.login.forgotpassword', 'login', null)}">
+                    ${Resource.msg('link.login.forgotpassword', 'login', null)}
+                </a>
+
+                <a id="password-reset" class="hidden-xs-down password-reset link2"
+                    title="${Resource.msg('link.login.forgotpassword', 'login', null)}" data-toggle="modal"
+                    href="${URLUtils.url('Account-PasswordResetDialogForm')}" data-target="#requestPasswordResetModal">
+                    ${Resource.msg('link.login.forgotpassword', 'login', null)}
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 px-0">
+                <div class="mb-0 mb-md-5">
+                    <div class="pr-md-small submit-customer-login-container pb-4 pb-md-0">
+                        <button class="btn btn-primary btn-block submit-customer-login green-button-background" type="submit" name="submit"
+                            value="submit-login">
+                            ${Resource.msg('button.customer.login', 'checkout', null)}
+                        </button>
+                    </div>
+                    <div class="pl-md-small cancel-login-container pt-2">
+                        <button class="btn btn-secondary btn-block js-cancel-login" name="submit" value="cancel-login">
+                        ${Resource.msg('button.customer.login.cancel', 'checkout', null)}
+                        </button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+    </form>
+
+</div>

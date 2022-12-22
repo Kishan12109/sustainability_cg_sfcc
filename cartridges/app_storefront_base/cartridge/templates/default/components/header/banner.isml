@@ -1,0 +1,4 @@
+<div class="banner-container">
+    <img class="banner" src="${URLUtils.staticURL('/images/banner.png')}" alt="banner" />
+    <div class="centered">${Resource.msgf('msg.home.banner', 'common', null)}</div>
+</div>

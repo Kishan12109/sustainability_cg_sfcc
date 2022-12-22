@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    This file should be copied and named for each mega-feature or integration.
+
+    For example:
+    
+    `system-objecttype-extensions-cybersource.xml`
+    `system-objecttype-extensions-loyalty.xml`
+    `system-objecttype-extensions-cms.xml`
+
+    For type extensions that are not large enough to warrant a new file,
+    a common convention is to create a file with the name of the site:
+    
+    `system-objecttype-extensions-acmecorp.xml`
+    
+    NOTE:
+    ####
+    Attribute groups for a given type extension (object) should be UNIQUE.
+    Defining an attribute-group with the same group-id accross two different
+    files will lead to overwriting the list attribute-group attributes.
+ -->
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+
+    <type-extension type-id="SitePreferences">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="enableSustainability">
+                <display-name xml:lang="x-default">Enable Sustainability</display-name>
+                <description xml:lang="x-default">Global flag to enable/disable sustainability features</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Storefront Configs">
+                <display-name xml:lang="x-default">Storefront Configurations</display-name>
+                <attribute attribute-id="listPriceDefault"/>
+                <attribute attribute-id="GoogleVerificationTag"/>
+                <attribute attribute-id="countryCode"/>
+                <attribute attribute-id="customerServiceEmail"/>
+                <attribute attribute-id="mapAPI"/>
+                <attribute attribute-id="enableSustainability"/>
+            </attribute-group>
+        </group-definitions>
+      </type-extension>
+
+</metadata>

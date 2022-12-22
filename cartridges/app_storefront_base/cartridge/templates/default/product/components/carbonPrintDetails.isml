@@ -1,0 +1,43 @@
+<div class="row">
+<isif condition="${pdict.enableSustainability}">
+    <div class="col carbon-values">
+        <p>${Resource.msg('text.productmaterialcarbon.material', 'product', null)}
+            <isif condition="${product.productMaterialCarbonPoints}">
+                ${product.productMaterialCarbonPoints}
+            <iselse/>
+                ${Resource.msg('text.productcarbon.carbon', 'product', null)}
+            </isif>
+        </p>
+        <p>${Resource.msg('text.productpackagingcarbon.packaging', 'product', null)}
+            <isif condition="${product.productPackagingCarbonPoints}">
+                ${product.productPackagingCarbonPoints}
+            <iselse/>
+                ${Resource.msg('text.productcarbon.carbon', 'product', null)}
+            </isif>
+        </p>
+        <p>${Resource.msg('text.productenergycarbon.energy', 'product', null)}
+            <isif condition="${product.productEnergyCarbonPoints}" >
+                ${product.productEnergyCarbonPoints} 
+            <iselse/>
+                ${Resource.msg('text.productcarbon.carbon', 'product', null)} 
+            </isif>
+        </p>
+        <p>${Resource.msg('text.producttransportcarbon.transport', 'product', null)}
+            <isif condition="${product.productTransportCarbonPoints}" >
+                ${product.productTransportCarbonPoints}
+            <iselse/>
+                ${Resource.msg('text.productcarbon.carbon', 'product', null)}
+            </isif>
+        </p>
+        <p>
+            <isif condition="${!empty(product.productTotalCarbonPoints)}">
+                ${Resource.msg('text.productcarbonpoints', 'product', null)} :
+                ${product.productTotalCarbonPoints} kg CO2e
+            </isif>
+        </p>
+        <iscomment>
+            <p>${Resource.msg('text.productbadge.productBadge', 'product', null)}${product.productBadge}</p>
+        </iscomment>
+    </div>
+    </isif>
+</div>

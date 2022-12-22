@@ -1,0 +1,129 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/cart.css');
+    </isscript>
+
+    <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
+        <isinclude template="reporting/reportingUrls" />
+    </isif>
+
+    <div class="cart-error-messaging cart-error">
+        <isif condition="${pdict.valid.error && pdict.items.length !== 0}">
+            <div class="alert alert-danger alert-dismissible valid-cart-error fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                ${pdict.valid.message}
+            </div>
+        </isif>
+    </div>
+
+    <div class="container ">
+        <h1 class="col-12 text-center cart-title shopingbag-pad ">${Resource.msg('title.cart1','cart',null)}</h1>
+         <iscomment> <div class="row cart-header">
+            <div class="col-sm-4 hidden-xs-down">
+                <a class="continue-shopping-link" href="${URLUtils.url('Home-Show')}" title="${Resource.msg('link.continue.shopping','cart',null)}">
+                    ${Resource.msg('link.continue.shopping','cart',null)}
+                </a>
+            </div>
+            <div class="col-sm-3 text-center">
+                <h2 class="number-of-items">${Resource.msgf('label.number.items.in.cart','cart', null, pdict.numItems)}</h2>
+            </div>
+
+             <div class="col-sm-5 text-right hidden-xs-down">
+                <div>
+                    <span>${Resource.msg('info.need.help','cart',null)}</span>
+                    <span><a class="help-phone-number" href="tel:${Resource.msg('info.phone.number','common',null)}">${Resource.msg('info.phone.number','common',null)}</a></span>
+                </div>
+            </div>
+        </div>
+        <hr class="no-margin-top">
+    </div> </iscomment>
+
+    <isif condition="${pdict.items.length === 0}">
+        <div class="container cart-empty">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1>${Resource.msg('info.cart.empty.msg','cart',null)}</h1>
+                </div>
+            </div>
+        </div>
+    <iselse/>
+        <div class="container cart cart-page">
+            <div class="row">
+                <!---product cards--->
+                <div class="col-sm-7 col-md-8">
+                    <isloop items="${pdict.items}" var="lineItem">
+                        <isif condition="${lineItem.productType === 'bundle'}">
+                            <isinclude template="cart/productCard/cartBundleCard" />
+                        <iselse/>
+                            <isif condition="${lineItem.noProduct === true}">
+                                <isinclude template="cart/productCard/uncategorizedCartProductCard" />
+                            <iselse/>
+                                <isinclude template="cart/productCard/cartProductCard" />
+                            </isif>
+                        </isif>
+                        <div class="row sustainlogo-padd h-hide">
+                        <div class="col-1"></div>
+                        <div class="col-11 p-3">
+                        <img alt="" class="sustainlogo-padd2" src="${URLUtils.staticURL('/images/sustainpoints.png')}"/>
+                        <h1 class="sustainlogo-padd1">${Resource.msg('text.points.cart','cart',null)}</h1>
+                        </div>
+                        <div class="col-12">
+                        <p class="redeem-points">This item consists of 75 sustainable pionts which you can redeem in next purchase</p>
+
+                        </div>
+
+                        
+                        <iscomment> <img alt="" class="sustainlogo-padd1" src="${URLUtils.staticURL('/images/75 points.png')}"/> </iscomment>
+                         
+                         
+                        </div>
+                        <iscomment> <div class="redeem-points"> </iscomment>
+                        <iscomment> <img alt="" src="${URLUtils.staticURL('/images/sustainable pionts to redeem .png')}"/> </iscomment>
+                        
+                        <iscomment> </div> </iscomment>
+
+                    </isloop>
+                    <isinclude template="cart/cartApproachingDiscount" />
+                </div>
+                <!---totals, and checkout actions--->
+                <div class="col-sm-5 col-md-4 totals">
+                    <isinclude template="cart/cartPromoCode" />
+                    <div class="coupons-and-promos">
+                        <isinclude template="cart/cartCouponDisplay" />
+                    </div>
+                    <div class="row">
+                        <isinclude template="cart/cartShippingMethodSelection" />
+                    </div>
+                    <isinclude template="cart/cartTotals" />
+                    <div class="row">
+                        <div class="col-12 checkout-continue">
+                            <isinclude template="cart/checkoutButtons" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <isif condition="${pdict.registeredUser && pdict.enableSustainability && pdict.enableNeutralizeOptionsCart}">
+                <div class="card mt-3">
+                    <isinclude template="cart/cartTreeCost" />
+                </div>
+            </isif>
+            <h1>YOU MAY ALSO LIKE</h1>
+            <div>
+                <isslot id="product-recommend" description="Complete the set products" context="global" />
+            </div>
+
+
+            <isinclude template="cart/cartRemoveProductModal"/>
+        </div>
+
+        <isinclude template="cart/cartRemoveCouponModal"/>
+    </isif>
+    <div class="container">
+        <isslot id="cart-recommendations-m" description="Recommended products" context="global" />
+    </div>
+</isdecorate>

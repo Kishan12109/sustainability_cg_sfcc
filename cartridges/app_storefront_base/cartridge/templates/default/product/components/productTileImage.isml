@@ -1,0 +1,31 @@
+<div class="image-container">
+    <a href="${pdict.urls.product}">
+        <img class="tile-image" src="${product.images.medium[0].url}" alt="${product.productName}"
+            title="${product.images.medium[0].title}" />
+
+    </a>
+    <iscomment> <button type="button" class="btn btn-default wishlist" data-toggle="tooltip" data-placement="right"
+        title="Wishlist"><i class="fa fa-heart" style="font-size:25px"></i></button> </iscomment>
+
+   <isif condition="${pdict.enableSustainability && product.productTotalCarbonPoints !=null && (product.productTotalCarbonPoints < pdict.sustainableThresholdValue)}">
+        <img class="fa fa-recycle" src="${URLUtils.staticURL('/images/logo.png')}" alt="logo" width="35px"/>
+    <iselse/>
+        <iscomment> ${Resource.msg('text.productcarbon.carbon', 'product', null)} </iscomment>
+    </isif>
+
+    <isif condition="${pdict.display.showQuickView !== false}">
+        <a class="quickview hidden-sm-down" href="${pdict.urls.quickView}" data-toggle="modal"
+            data-target="#quickViewModal"
+            title="${Resource.msgf('button.quickview', 'common', null, product.productName)}"
+            aria-label="${Resource.msgf('button.quickview', 'common', null, product.productName)}">
+
+
+
+            <iscomment> <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-inverse fa-stack-2x"></i>
+                    <i class="fa fa-expand fa-stack-1x"></i>
+                </span> </iscomment>
+        </a>
+
+    </isif>
+</div>

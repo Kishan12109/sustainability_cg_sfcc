@@ -1,0 +1,13 @@
+.form-group {
+    &.required .form-control-label::before {
+        content: "*";
+        color: $danger;
+    }
+}
+
+.promo-code {
+    width: 238px;
+    height: 48px;
+    top: 387px;
+    left: 934px;
+}

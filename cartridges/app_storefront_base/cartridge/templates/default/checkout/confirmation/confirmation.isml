@@ -1,0 +1,49 @@
+<isdecorate template="common/layout/checkout">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/checkout/checkout.css');
+        assets.addJs('/js/checkoutRegistration.js');
+    </isscript>
+
+    <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
+        <isinclude template="reporting/reportingUrls" />
+    </isif>
+    <iscomment> <div class="hero slant-down hero-confirmation">
+        <h1 class="page-title">${Resource.msg('title.thank.you.page','confirmation',null)}</h1>
+    </div> </iscomment>
+    <div class="container receipt <isif condition="${pdict.order.shipping.length > 1}">multi-ship</isif>">
+        <iscomment> <div class="row">
+            <div class="${pdict.returningCustomer ? 'col-sm-6 offset-sm-3' : 'col-sm-6 offset-sm-3 offset-md-0'}">
+                <h2 class="order-thank-you-msg">${Resource.msg('msg.placed.order.thank.you','confirmation',null)}</h2>
+                <isif condition="${pdict.order.orderEmail}">
+                    <p class="order-thank-you-email-msg"><isprint value="${Resource.msgf('info.receive.email.confirmation', 'confirmation', null, pdict.order.orderEmail)}" encoding="htmlcontent" /></p>
+                </isif>
+            </div>
+        </div> </iscomment>
+
+        <div class="row pt-4 pb-3">
+            <div class="col-6 text-center"> <img src="${URLUtils.staticURL('/images/confirmation.png')}" alt="confirmation" class="img-fluid"> </div>
+            <div class="col-6 order-confirmation-content">Your Order has Been Confirmed. <br> Congratulation with <br> your purchase. <br>
+                <isif condition="${!empty(pdict.order.totalCarbonNeutralizedPoints)}"> 
+                    <span class="h-color-primary">You’ve earned ${pdict.order.totalCarbonNeutralizedPoints.toFixed()} Sustainable Points.</span>
+                </isif>
+            </div>
+        </div>
+
+        <div class="row">
+            <iscomment> <isif condition="${pdict.returningCustomer === false && pdict.order.orderEmail}">
+                <div class="col-sm-6 offset-sm-3 offset-md-0 push-md-6">
+                    <isinclude template="checkout/confirmation/confirmationCreateAccount" />
+                </div>
+            </isif> </iscomment>
+            <div class="col-6 offset-3">
+                <isinclude template="checkout/confirmation/confirmationDetails" />
+                <div class="">
+                    <a href="${URLUtils.url('Home-Show')}" class="btn btn-primary btn-block green-button-background continue-shopping-button pl-5 pr-5" role="button" aria-pressed="true">
+                        ${Resource.msg('button.continue.shopping','confirmation',null)}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>

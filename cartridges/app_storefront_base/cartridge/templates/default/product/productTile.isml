@@ -1,0 +1,34 @@
+<div class="product-tile">
+    <!-- dwMarker="product" dwContentID="${product.uuid}" -->
+    <isinclude template="product/components/productTileImage" />
+    <div class="tile-body">
+
+        <isinclude template="product/components/productTileName" />
+
+        <isset name="price" value="${product.price}" scope="page" />
+        <isif condition="${product.productType === 'set'}">
+            <isinclude template="product/components/pricing/setPrice" />
+        <iselse>
+            <isinclude template="product/components/pricing/main" />
+        </isif>
+
+        <isif condition="${pdict.display.swatches !== false}"> <br>
+        Available colors
+            <isinclude template="product/components/productTileSwatch" />
+        </isif>
+
+        <iscomment> <isif condition="${pdict.display.ratings !== false}">
+            <isinclude template="product/productTileFooter" />
+            </isif>
+        </iscomment>
+        <iscomment>
+            <h6>${Resource.msg('text.producttotalcarbonpoints.carbonscore', 'product', null)}${product.productTotalCarbonPoints} kg CO2e </h6>
+        </iscomment>
+
+
+        <iscomment>
+            <h6>${Resource.msg('text.productbadge.productBadge', 'product', null)}${product.productBadge}</h6>
+        </iscomment>
+    </div>
+    <!-- END_dwmarker -->
+</div>

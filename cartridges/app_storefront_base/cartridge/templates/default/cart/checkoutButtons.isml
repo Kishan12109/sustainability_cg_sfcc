@@ -1,0 +1,12 @@
+ <div class="mb-sm-3">
+<button class="sustain-btn w-100">
+    <a href="${URLUtils.https('Checkout-Begin')}"
+        class="sustain-links ${pdict.valid.error ? 'disabled' : ''}" role="button">
+        <span class="user-message">${Resource.msg('button.checkout1', 'cart', null)}</span>
+    </a>
+</button>
+</div>
+<img alt="" class="recyclelogo-padd" src="${URLUtils.staticURL('/images/logo.png')}"/>
+<p class="shopping-pad">Sustainable Shopping is Responsible Shopping </p>
+
+

@@ -1,0 +1,35 @@
+.profile-pic {
+    height: 200px;
+    width: 200px;
+    top: 50%;
+    left: 50%;
+    //position: absolute;
+    transform: translate(217%, -8%);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid grey;
+}
+
+#photo {
+    height: 100%;
+    width: 100%;
+}
+
+#file {
+    display: none;
+}
+
+#upload-btn {
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    font-size: 15px;
+    line-height: 30px;
+    cursor: pointer;
+}

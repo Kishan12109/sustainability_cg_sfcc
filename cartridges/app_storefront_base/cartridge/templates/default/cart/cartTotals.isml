@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-8">
+        <p class="shipping-pad">${Resource.msg('label.shipping.cost', 'cart', null)}</p>
+    </div>
+    <div class="col-4">
+        <p class="text-right shipping-cost shippingprice-pad">${pdict.totals.totalShippingCost}</p>
+    </div>
+</div>
+
+<!--- Shipping Discount --->
+<div class="row shipping-discount <isif condition=" ${pdict.totals.shippingLevelDiscountTotal.value === 0}">
+    hide-shipping-discount</isif>">
+    <div class="col-8">
+        <p class="shipping-pad">${Resource.msg('label.shipping.discount', 'common', null)}</p>
+    </div>
+    <div class="col-4">
+        <p class="text-right shipping-discount-total shippingprice-pad"> -
+            ${pdict.totals.shippingLevelDiscountTotal.formatted}</p>
+    </div>
+</div>
+<isif condition="${pdict.enableSustainability && pdict.enableNeutralizeOptionsCart}">
+    <div class="row leading-lines shipping-item">
+        <div class="col-8 start-lines">
+            <p class="order-receipt-label shipping-pad">
+                <span>${Resource.msg('label.order.totaltree.cost', 'confirmation', null)}</span>
+            </p>
+        </div>
+        <div class="col-4 end-lines">
+            <p class="text-left ml-4 shipping-pad"><span
+                    class="tree-total-cost">${pdict.totals.totalTreeCost ? pdict.totals.totalTreeCost : 0}</span></p>
+        </div>
+    </div>
+</isif>
+<!-- Sales Tax -->
+<div class="row">
+    <div class="col-8">
+        <p class="shipping-pad">${Resource.msg('label.sales.tax', 'cart', null)}</p>
+    </div>
+    <div class="col-4">
+        <p class="text-right tax-total shippingprice-pad">${pdict.totals.totalTax}</p>
+    </div>
+</div>
+
+<!--- Order Discount --->
+<div class="row order-discount <isif condition=" ${pdict.totals.orderLevelDiscountTotal.value === 0}">hide-order-discount
+    </isif>">
+    <div class="col-8">
+        <p class="shipping-pad">${Resource.msg('label.order.discount', 'common', null)}</p>
+    </div>
+    <div class="col-4">
+        <p class="text-right order-discount-total shippingprice-pad"> -
+            ${pdict.totals.orderLevelDiscountTotal.formatted}</p>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-8">
+        <p class="shipping-pad"><strong>${Resource.msg('label.estimatedtotal', 'cart', null)}</strong></p>
+    </div>
+    <div class="col-4">
+        <p class="text-right grand-total shippingprice-pad font-weight-bold"><strong>${pdict.totals.grandTotal}</strong></p>
+    </div>
+</div>
+<div class="row">
+    <isif condition="${pdict.enableSustainability}">
+        <div class="col-8">
+            <p class="shipping-pad"><strong>${Resource.msg('label.totalCarbonPoints', 'cart', null)}</strong></p>
+        </div>
+        <div class="col-4">
+            <p class="text-right carbon-points shippingprice-pad font-weight-bold"><strong>${pdict.totalCarbonPoints ? pdict.totalCarbonPoints : 0}</strong></p>
+        </div>
+    </isif>
+</div>

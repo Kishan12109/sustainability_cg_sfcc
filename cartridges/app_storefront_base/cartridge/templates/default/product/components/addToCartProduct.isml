@@ -1,0 +1,23 @@
+<div class="row cart-and-ipay">
+<div class="row">
+
+<iscomment> <div class="col-sm-6">
+    <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}">
+    <button class="buy-now" data-toggle="modal" data-target="#chooseBonusProductModal" data-pid="${product.id}"
+        ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+
+        Buy now
+    </button>
+</div> </iscomment>
+
+    <div class="col-sm-6">
+        <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}">
+        <button class="add-to-cart buy-now" data-toggle="modal" data-target="#chooseBonusProductModal"
+            data-pid="${product.id}" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+            ${Resource.msg('button.addtocart', 'common', null)}
+        </button>
+
+        <isinclude template="product/components/addToCartButtonExtension" />
+    </div>
+</div>
+</div>

@@ -1,0 +1,59 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/csrf.css');
+    </isscript>
+
+    <h1 class="carbon-text text-center">${Resource.msg('carbon.summary', 'common', null)}</h1>
+
+
+    <div class="cointainer" style="margin:80px;">
+
+        <div class="card carbon-card">
+            <div class="card-body">
+                <h5 class="card-title-carbon text-center">${Resource.msg('carbon.summary', 'common', null)}</h5>
+                <p class="card-text-carbon">${Resource.msg('carbon.description', 'common', null)}</p>
+                <div class="table">
+
+                    <table class="table">
+                        <thead class="thead-carbon">
+                            <tr>
+                                <th scope="col">${Resource.msg('label.carbon.points', 'common', null)}</th>
+                                <th scope="col">${Resource.msg('label.carbon.neutralized', 'common', null)}</th>
+                                <th scope="col">${Resource.msg('label.carbon.remaining', 'common', null)}</th>
+                            </tr>
+                        </thead>
+                        <isif
+                            condition="${pdict.carbonPointsConsumed !== null && pdict.carbonPointsNeutralized !== null}">
+                            <tbody class="carbon-tbody">
+                                <tr>
+                                    <td>${pdict.carbonPointsConsumed}</td>
+                                    <td>${pdict.carbonPointsNeutralized}</td>
+                                    <td>${pdict.pointsRemaining}</td>
+                                </tr>
+                            </tbody>
+                        <iselse/>
+                            <tbody>
+                                <tr>
+                                    <td class="no-points">
+                                        ${Resource.msg('lable.carbon.register', 'common', null)}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </isif>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <iscomment> <div>
+            <h1 class="carbon-statistic">${Resource.msg('carbon.statistics', 'common', null)}</h1>
+            <div class="card" style="width:1099px; height:591px;">
+                <div class="card-body">
+                    Carbon statistics
+                </div>
+            </div>
+        </div>
+        Things To Know </iscomment>
+    </div>
+</isdecorate>

@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="pdp-link col">
+        <a class="link" href="${pdict.urls.product}">${product.productName}</a>
+    </div>
+    <div class="col">
+        <div class="row">
+            <isif condition="${pdict.enableSustainability}">
+                <div class="col carbon-score">
+                    <p>
+                        <isif condition="${product.productTotalCarbonPoints}">
+                            <div>
+                                <svg class="progress blue noselect" data-progress="${product.productTotalCarbonPoints}"
+                                    x="0px" y="0px" viewBox="0 0 80 80">
+                                    <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                                    <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                                    <text class="value" x="50%" y="55%">${product.productTotalCarbonPoints}</text>
+                                </svg>
+                            </div>
+                            <div class="col carbon-msg">
+                                <p class="carbon-msgs">${Resource.msg('text.producttotalcarbonpoints.carbon', 'product', null)} <br>
+                                    ${Resource.msg('text.producttotalcarbonpoints.score', 'product', null)}</p>
+                            </div>
+                        <iselse/>
+                            ${Resource.msg('text.productcarbon.carbon', 'product', null)}
+                        </isif>
+                    </p>
+                </div>
+            </isif>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+<isinclude template="search/searchResults" />
+<isif condition="${false}" >
+    <isslot id="plp-top-promotional-slotbanner" description="Promotional Banner on top PLP search category pages" context="category" context-object="${pdict.category}" />
+    <isslot id="plp-hero-slotbanner" description="Hero Banner on top PLP search category pages" context="category" context-object="${pdict.category}" />
+</isif>

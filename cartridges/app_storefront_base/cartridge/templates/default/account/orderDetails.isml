@@ -1,0 +1,53 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/account/orderTrack.css');
+        assets.addCss('/css/account/profile.css');
+    </isscript>
+
+    <!--- Replace image once UX has given images --->
+    <div class="hero slant-down account-image h-hide">
+        <h1 class="page-title">${Resource.msg('heading.order.details','order',null)}</h1>
+    </div>
+    <div class="container receipt <isif condition="${pdict.order.shipping.length > 1}">multi-ship</isif>">
+        <!---Breadcrumbs--->
+        <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+        <span class="order-details-title ml-5">
+            <span class="summary-section-label order-number-label">${Resource.msg('label.order.number', 'confirmation', null)}</span>
+            <span class="summary-details order-number">${pdict.order.orderNumber}</span>
+        </span>
+        <div class="row justify-content-center mt-4">
+            <div class="col-sm-8 col-md-8">
+                <div class="card checkout-order-total-summary order-details-block-radius">
+                    <div class="card-body order-total-summary bg-color-primary order-details-block pl-5">
+                        <p>
+                            <span
+                                class="summary-section-label order-date-label order-details">${Resource.msg('label.order.date', 'confirmation', null)}</span>
+                            <span class="summary-details order-date order-details">
+                                <isprint value="${pdict.order.creationDate}" style="DATE_SHORT" /></span>
+                        </p>
+                        <isinclude template="checkout/orderTotalSummary" />
+                    </div>
+                </div>
+                <div class="mt-5 mb-5">
+                    <isinclude template="checkout/orderProductSummary" />
+                </div>
+                <div class="card confirm-details order-details-block-radius">
+                    <div class="card-header h-hide">
+                        <h2 class="card-header-custom">${Resource.msg('title.receipt', 'confirmation', null)}</h2>
+                    </div>
+                    <div class="card-body order-details-block pl-5 pr-5">
+                        <isinclude template="checkout/shipping/shippingSummary" />
+                        <isinclude template="checkout/billing/billingSummary" />
+                    </div>
+                </div>
+                <div class="my-account mt-4">
+                    <a href="${pdict.exitLinkUrl}" title="${Resource.msg('link.orderdetails.myaccount', 'account', null)}"
+                        aria-label="${Resource.msg('link.orderdetails.myaccount', 'account', null)}">
+                        ${pdict.exitLinkText}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>

@@ -1,0 +1,34 @@
+<div class="card account-pro">
+
+    <div class="card-header clearfix">
+        <iscomment>
+            <h2 class="pull-left profile-header">${Resource.msg('label.profile', 'account', null)}</h2>
+        </iscomment>
+        <isif condition="${!pdict.account.isExternallyAuthenticated}">
+            <a href="${URLUtils.url('Account-EditProfile')}" class="pull-right sustain-btn-account"
+                aria-label="${Resource.msg('label.profile.edit', 'account', null)}">${Resource.msg('link.edit', 'account', null)}</a>
+        </isif>
+    </div>
+    <div class="card-body">
+
+        <dl>
+            <dt class="profile-label">${Resource.msg('label.profile.firstname', 'account', null)}</dt>
+            <dd class="profile-details">${pdict.account.profile.firstName}</dd>
+        </dl>
+        <dl>
+            <dt class="profile-label">${Resource.msg('label.profile.lastname', 'account', null)}</dt>
+            <dd class="profile-details">${pdict.account.profile.lastName}</dd>
+        </dl>
+        <dl>
+            <dt class="profile-label">${Resource.msg('label.profile.email', 'account', null)}</dt>
+            <dd class="profile-details">${pdict.account.profile.email}</dd>
+        </dl>
+        <isif condition="${!pdict.account.isExternallyAuthenticated}">
+            <dl>
+                <dt class="profile-label">${Resource.msg('label.profile.phone', 'account', null)}</dt>
+                <dd class="profile-details">${pdict.account.profile.phone}</dd>
+            </dl>
+        </isif>
+
+    </div>
+</div>

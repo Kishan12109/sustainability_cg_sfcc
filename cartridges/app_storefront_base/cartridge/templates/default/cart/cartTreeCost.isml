@@ -1,0 +1,25 @@
+<div id="cartTreeCost" class="cartTreeCost">
+<isif condition="${pdict.enableSustainability && pdict.enableNeutralizeOptionsCart}">
+    <table class="table">
+        <thead class="thead">
+            <tr>
+                <th scope="col" class=""> </th>
+                <th scope="col" class="">${Resource.msg('label.tree.heading', 'checkout', null)}</th>
+                <th scope="col" class="">${Resource.msg('label.tree.neutralizepoints', 'checkout', null)}</th>
+                <th scope="col" class="">${Resource.msg('label.tree.cost', 'checkout', null)}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <isloop items="${pdict.treeCostValues}" var="tree" status="loopstatus">
+                <tr>
+                    <td> <input type="checkbox" name="cartTreeCost" id="${tree.id}" value="${tree.value}"
+                            ${tree.checked ? tree.checked : ''} v-model="checkedNames" data-url="${URLUtils.https('Cart-Tree')}" /> </td>
+                    <td>${tree.numberOfItems}</td>
+                    <td>${tree.points}</td>
+                    <td>${tree.value}</td>
+                </tr>
+            </isloop>
+        </tbody>
+    </table>
+</isif>
+</div>

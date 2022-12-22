@@ -1,0 +1,95 @@
+<!--- Subtotal --->
+<div class="row leading-lines subtotal-item">
+    <div class="col-8 start-lines">
+        <p class="order-receipt-label checkout-order-summary-label">
+            <span>${Resource.msg('label.order.subtotal', 'confirmation', null)}</span></p>
+    </div>
+    <div class="col-4 end-lines">
+        <p class="text-left ml-4 checkout-order-summary-label"><span
+                class="sub-total">${pdict.order.totals.subTotal}</span></p>
+    </div>
+</div>
+
+<!--- Order Discount --->
+<div class="row leading-lines order-discount <isif condition=" ${pdict.order.totals.orderLevelDiscountTotal.value === 0}">
+    hide-order-discount</isif>">
+    <div class="col-8 start-lines">
+        <p class="order-receipt-label checkout-order-summary-label"><span>${Resource.msg('label.order.discount', 'common', null)}</span></p>
+    </div>
+    <div class="col-4 end-lines">
+        <p class="text-left ml-4 checkout-order-summary-label"><span
+                class="order-discount-total">${pdict.order.totals.orderLevelDiscountTotal.formatted}</span></p>
+    </div>
+</div>
+
+<!--- Shipping Cost --->
+<div class="row leading-lines shipping-item">
+    <div class="col-8 start-lines">
+        <p class="order-receipt-label checkout-order-summary-label">
+            <span>${Resource.msg('label.order.shipping.cost', 'confirmation', null)}</span></p>
+    </div>
+    <div class="col-4 end-lines">
+        <p class="text-left ml-4 checkout-order-summary-label"><span
+                class="shipping-total-cost">${pdict.order.totals.totalShippingCost}</span></p>
+    </div>
+</div>
+
+<div class="row leading-lines shipping-item">
+    <isif condition="${pdict.enableSustainability}">
+        <div class="col-8 start-lines">
+            <p class="order-receipt-label checkout-order-summary-label">
+                <span>${Resource.msg('label.order.totaltree.cost', 'confirmation', null)}</span>
+            </p>
+        </div>
+        <div class="col-4 end-lines">
+            <p class="text-left ml-4 checkout-order-summary-label"><span
+                    class="tree-total-cost">${pdict.order.totals.totalTreeCost ? pdict.order.totals.totalTreeCost : 0}</span></p>
+        </div>
+    </isif>
+</div>
+
+<!--- Shipping Discount --->
+<div class="row leading-lines shipping-discount <isif condition="
+    ${pdict.order.totals.shippingLevelDiscountTotal.value === 0}">hide-shipping-discount</isif>">
+    <div class="col-8 start-lines">
+        <p class="order-receipt-label checkout-order-summary-label"><span>${Resource.msg('label.shipping.discount', 'common', null)}</span></p>
+    </div>
+    <div class="col-4 end-lines">
+        <p class="text-left ml-4 checkout-order-summary-label"><span
+                class="shipping-discount-total">${pdict.order.totals.shippingLevelDiscountTotal.formatted}</span></p>
+    </div>
+</div>
+
+<!--- Sales Tax --->
+<div class="row leading-lines sales-tax-item">
+    <div class="col-8 start-lines">
+        <p class="order-receipt-label checkout-order-summary-label">
+            <span>${Resource.msg('label.order.sales.tax', 'confirmation', null)}</span></p>
+    </div>
+    <div class="col-4 end-lines">
+        <p class="text-left ml-4 checkout-order-summary-label"><span
+                class="tax-total">${pdict.order.totals.totalTax}</span></p>
+    </div>
+</div>
+
+<!--- Grand Total --->
+<div class="row grand-total leading-lines">
+    <div class="col-8 start-lines">
+        <p class="order-receipt-label checkout-order-summary-label">
+            <span>${Resource.msg('label.order.grand.total', 'confirmation', null)}</span></p>
+    </div>
+    <div class="col-4 end-lines">
+        <p class="text-left ml-4 checkout-order-summary-label"><span
+                class="grand-total-sum">${pdict.order.totals.grandTotal}</span></p>
+    </div>
+</div>
+<div class="row">
+    <isif condition="${pdict.enableSustainability}">
+        <div class="col-9 order-receipt-label checkout-order-summary-label">
+            <strong>${Resource.msg('label.totalCarbonPoints', 'cart', null)}</strong>
+        </div>
+        <div class="col-3 p-0">
+            <p class="text-left font-weight-bold checkout-order-summary-label">${pdict.order.totalCarbonPoints ? pdict.order.totalCarbonPoints : 0}</p>
+        </div>
+    </isif>
+</div>
